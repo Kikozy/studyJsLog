@@ -37,47 +37,20 @@
     </style>
 </head>
 <body>
-    <div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-    </div>
-    <button id="btnStart">开始闪</button>
-    <button id="btnEnd">结束闪</button>
+<div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<button id="btnStart">开始闪</button>
+<button id="btnEnd">结束闪</button>
 
-<script>
-    let next = true
-    let colorLoop
-    document.getElementById('btnStart').onclick = () => {
-        next = true
-        if(colorLoop){
-            clearInterval(colorLoop)
-        }
-        colorLoop = setInterval(()=>{
-            if(next){
-                let randomDom = Math.floor(Math.random()*9)//随机DOM
-                let colorR = Math.floor(Math.random()*256)//随机R
-                let colorG = Math.floor(Math.random()*256)//随机G
-                let colorB = Math.floor(Math.random()*256)//随机B
-                document.getElementsByClassName('item')[randomDom].style.backgroundColor = `rgb(${colorR},${colorG},${colorB})`
-                setTimeout(()=>{
-                    document.getElementsByClassName('item')[randomDom].style.backgroundColor = `orange`
-                },500)
-            }else{
-                clearInterval(colorLoop)
-            }
-        },1000)
-        console.log(colorLoop)
-    }
-    document.getElementById('btnEnd').onclick = () => {
-        next = false
-    }
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
