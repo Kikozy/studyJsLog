@@ -7,13 +7,13 @@
         }
         colorLoop = setInterval(()=>{
             if(next){
-                var randomDom1 = Math.floor(Math.random()*9);//随机DOM1
-                var randomDom2 = Math.floor(Math.random()*9);//随机DOM2
-                var randomDom3 = Math.floor(Math.random()*9);//随机DOM3
+                var randomDom1 = Math.floor(Math.random()*9);//闅忔満DOM1
+                var randomDom2 = Math.floor(Math.random()*9);//闅忔満DOM2
+                var randomDom3 = Math.floor(Math.random()*9);//闅忔満DOM3
                 document.getElementsByClassName('item')[randomDom1].style.backgroundColor = randomColor();
                 document.getElementsByClassName('item')[randomDom2].style.backgroundColor = randomColor();
                 document.getElementsByClassName('item')[randomDom3].style.backgroundColor = randomColor();
-                //复原
+                //澶嶅師
                 setTimeout(()=>{
                     document.getElementsByClassName('item')[randomDom1].style.backgroundColor = `orange`;
                     document.getElementsByClassName('item')[randomDom2].style.backgroundColor = `orange`;
