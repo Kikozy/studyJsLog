@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九宫格</title>
+    <style>
+        div {
+            width: 310px;
+            height: 235px;
+        }
+        div.item {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            width: 100px;
+            height: 75px;
+            background-color: orange;
+            float: left;
+        }
+        div.item:nth-child(3n) {
+            margin-right: 0;
+        }
+        div.item:nth-last-child(-n+3) {
+            margin-bottom: 0;
+        }
+        button {
+            margin: 10px 0;
+            display: block;
+            height: 50px;
+            width: 310px;
+            background-color: pink;
+            text-align: center;
+            font: 28px/50px "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <button id="btnStart">开始闪</button>
+    <button id="btnEnd">结束闪</button>
+
+<script>
+    let next = true
+    let colorLoop
+    document.getElementById('btnStart').onclick = () => {
+        next = true
+        if(colorLoop){
+            clearInterval(colorLoop)
+        }
+        colorLoop = setInterval(()=>{
+            if(next){
+                let randomDom = Math.floor(Math.random()*9)//随机DOM
+                let colorR = Math.floor(Math.random()*256)//随机R
+                let colorG = Math.floor(Math.random()*256)//随机G
+                let colorB = Math.floor(Math.random()*256)//随机B
+                document.getElementsByClassName('item')[randomDom].style.backgroundColor = `rgb(${colorR},${colorG},${colorB})`
+                setTimeout(()=>{
+                    document.getElementsByClassName('item')[randomDom].style.backgroundColor = `orange`
+                },500)
+            }else{
+                clearInterval(colorLoop)
+            }
+        },1000)
+        console.log(colorLoop)
+    }
+    document.getElementById('btnEnd').onclick = function () {
+        next = false
+    }
+</script>
+</body>
+</html>
